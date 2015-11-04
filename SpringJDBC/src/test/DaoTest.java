@@ -14,9 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import demo.dao.DaoDemo;
 /**
- * @description ?????��
+ * 
  * @author yuaneg
- * 2015?��11??1??????9:02:46
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
