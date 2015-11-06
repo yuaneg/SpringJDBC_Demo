@@ -42,5 +42,16 @@ public class DaoTest extends AbstractJUnit4SpringContextTests{
 		daodemol.queryForList();
 		
 	}
+
+	@Test
+	public void queryForMap(){
+		daodemol.queryForMap();
+		
+	}
+	@Test
+	public void queryForSqlRowSet(){
+		daodemol.queryForSqlRowSet();
+		
+	}
 	
 }
