@@ -1,11 +1,11 @@
 package test;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-import java.util.Map;
-
+import static org.hamcrest.core.IsNull.*;
 import javax.annotation.Resource;
 
-import org.junit.Ignore;
+import org.apache.log4j.Logger;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,7 +27,7 @@ public class DaoTest extends AbstractJUnit4SpringContextTests{
 	@Test
 	public void queryIntTest() {
 		int t = daodemol.queryForInt();
-		assertTrue(t > 0);
+		assertThat(t,notNullValue());
 	}
 	
 	@Test
@@ -51,7 +51,8 @@ public class DaoTest extends AbstractJUnit4SpringContextTests{
 	@Test
 	public void queryForSqlRowSet(){
 		daodemol.queryForSqlRowSet();
-		
+		Logger log=Logger.getLogger(DaoTest.class);
+		log.error("信息");;
 	}
 	
 }
