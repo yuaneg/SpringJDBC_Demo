@@ -52,7 +52,7 @@ public class DaoTest extends AbstractJUnit4SpringContextTests{
 	public void queryForSqlRowSet(){
 		daodemol.queryForSqlRowSet();
 		Logger log=Logger.getLogger(DaoTest.class);
-		log.error("信息");;
+		log.error("信1息");;
 	}
 	
 }
