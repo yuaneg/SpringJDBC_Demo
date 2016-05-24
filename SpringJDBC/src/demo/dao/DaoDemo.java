@@ -9,96 +9,96 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 /**
- * @description ²âÊÔÓÃµÄÊı¾İ¿âÊÇ ÆÕ»İ¼Ò mysql Êı¾İ¿â
+ * @description æµ‹è¯•ç”¨çš„æ•°æ®åº“æ˜¯  mysql æ•°æ®åº“
  * @author yuaneg
- * 2015Äê11ÔÂ1ÈÕÏÂÎç9:01:32
+ * 2015å¹´11æœˆ1æ—¥ä¸‹åˆ9:01:32
  */
 @Repository
 public class DaoDemo extends BaseDao{
 	/**
-	 * @description ·µ»ØÕûÊıÀàĞÍ  spring 3.2.2Ö®ºó£¬jdbctemplateÖĞµÄqueryForIntÒÑ¾­±»È¡ÏûÁË£¡ÓÃ queryForObject ´úÌæ
+	 * @description è¿”å›æ•´æ•°ç±»å‹  spring 3.2.2ä¹‹åï¼Œjdbctemplateä¸­çš„queryForIntå·²ç»è¢«å–æ¶ˆäº†ï¼ç”¨ queryForObject ä»£æ›¿
 	 * @author yuaneg
 	 * @return
-	 * 2015Äê11ÔÂ1ÈÕÏÂÎç9:40:43
+	 * 2015å¹´11æœˆ1æ—¥ä¸‹åˆ9:40:43
 	 */
 	@Deprecated
 	public int queryForInt(){
 		String sql="select count(*) from sys_user";
-		//µÚÒ»ÖÖ·½Ê½
+		//ç¬¬ä¸€ç§æ–¹å¼
 		int t=this.jdbcTemplate.queryForInt(sql);
 		return t;
 	}
 	/**
-	 * @description »ñÈ¡Object ÀàĞÍ  Object apiÖĞÒ»¹²ÓĞ 8ÖĞ·½Ê½
+	 * @description è·å–Object ç±»å‹  Object apiä¸­ä¸€å…±æœ‰ 8ä¸­æ–¹å¼
 	 * @author yuaneg
 	 * @return
-	 * 2015Äê11ÔÂ1ÈÕÏÂÎç10:06:13
+	 * 2015å¹´11æœˆ1æ—¥ä¸‹åˆ10:06:13
 	 */
 	public Object queryForObject(){
 		String sql="select count(*) from sys_user";
-		// µÚ¶ş¸ö²ÎÊı Ö»ÄÜÓÃ integer.class µÈ°ü×°ÀàµÄ.class  ÓÃint.class »á³ö´íÎó   
+		// ç¬¬äºŒä¸ªå‚æ•° åªèƒ½ç”¨ integer.class ç­‰åŒ…è£…ç±»çš„.class  ç”¨int.class ä¼šå‡ºé”™è¯¯   
 		//queryForObject(String sql, Class<T> requiredType)
-		//µÚÒ»¸ö²ÎÊı ÊÇ sql µÚ¶ş¸ö²ÎÊıÊÇÒª²éÑ¯ µÄ ·µ»ØÖµµÄÀàĞÍ  Èç¹ûĞ´ 3 ¸ö²ÎÊı µÚÈı¸ö ²ÎÊıÊÇ ... (list) Ç°Ãæ ? µÄ¸³Öµ
+		//ç¬¬ä¸€ä¸ªå‚æ•° æ˜¯ sql ç¬¬äºŒä¸ªå‚æ•°æ˜¯è¦æŸ¥è¯¢ çš„ è¿”å›å€¼çš„ç±»å‹  å¦‚æœå†™ 3 ä¸ªå‚æ•° ç¬¬ä¸‰ä¸ª å‚æ•°æ˜¯ ... (list) å‰é¢ ? çš„èµ‹å€¼
 		int t = this.jdbcTemplate.queryForObject(sql, Integer.class);
 		sql="select t.real_name from sys_user t where id=?";
 		String str = this.jdbcTemplate.queryForObject(sql,String.class,190L);
 		
-		//Ö»ÓĞÒÔÉÏÁ½ÖÖ·½·¨    µÄ²ÎÊıÀàĞÍÊÇ String sql, Class<T> requiredType, Object... args
+		//åªæœ‰ä»¥ä¸Šä¸¤ç§æ–¹æ³•    çš„å‚æ•°ç±»å‹æ˜¯ String sql, Class<T> requiredType, Object... args
 		
 		sql="select t.real_name from sys_user t where id=?";
-		//µÚÈı¸ö²ÎÊı Ö¸¶¨ Object ÀïÃæµÄÕûÊıÀàĞÍ ¿ÉÒÔ²»Ğ´
+		//ç¬¬ä¸‰ä¸ªå‚æ•° æŒ‡å®š Object é‡Œé¢çš„æ•´æ•°ç±»å‹ å¯ä»¥ä¸å†™
 		str=this.jdbcTemplate.queryForObject(sql,new Object[]{190},new int[]{1},String.class);
 		str=this.jdbcTemplate.queryForObject(sql,new Object[]{190},String.class);
 		
-		//²ÉÓÃ RowMapper ½Ó¿Ú»ñµÃ×Ô¶¨Òå¶ÔÏó
+		//é‡‡ç”¨ RowMapper æ¥å£è·å¾—è‡ªå®šä¹‰å¯¹è±¡
 		sql="select t.real_name,t.id from sys_user t where id=?";
 		Actor actor=this.jdbcTemplate.queryForObject(sql, new RowMapper<Actor>(){
 			@Override
 			public Actor mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Actor actor=new Actor();
-				//rs.getString(²éÑ¯²ÎÊıÃû³Æeg message_name);
+				//rs.getString(æŸ¥è¯¢å‚æ•°åç§°eg message_name);
 				actor.setName(rs.getString(1));
 				actor.setId(rs.getLong(2));
 				return actor;
 			}			
 		}, 190);
-		//ÈıÖÖĞÎÊ½ ÊÇÉÏÃæ 1-4 µÄ±äÖÖ ÖªÊ¶°Ñ·µ»ØÖµµÄÀàĞÍ±ä³ÉÁËRowMapper
+		//ä¸‰ç§å½¢å¼ æ˜¯ä¸Šé¢ 1-4 çš„å˜ç§ çŸ¥è¯†æŠŠè¿”å›å€¼çš„ç±»å‹å˜æˆäº†RowMapper
 		
 		//System.out.println(actor.getName()+"\t"+actor.getId());
 		return t;
 	}
 	/**
-	 * @description queryForList Ò»¹²ÆäÖĞ·½Ê½
+	 * @description queryForList ä¸€å…±å…¶ä¸­æ–¹å¼
 	 * @author yuaneg
 	 * @return
-	 * 2015Äê11ÔÂ3ÈÕÏÂÎç11:23:07
+	 * 2015å¹´11æœˆ3æ—¥ä¸‹åˆ11:23:07
 	 */
 	public List queryForList(){
-		//µÚÒ»ÖÖ Ö»ÓĞsqlµÄÇé¿öÏÂ »á·µ»Ø List<Map<String,Object>> »á·µ»Ø×Ö¶ÎºÍ ÖµµÄ¼üÖµ¶Ô µÄmapÀàĞÍ
+		//ç¬¬ä¸€ç§ åªæœ‰sqlçš„æƒ…å†µä¸‹ ä¼šè¿”å› List<Map<String,Object>> ä¼šè¿”å›å­—æ®µå’Œ å€¼çš„é”®å€¼å¯¹ çš„mapç±»å‹
 		String sql="select t.* from sys_user t";
 		List<Map<String,Object>> list=this.jdbcTemplate.queryForList(sql);
 		for(Map<String,Object> m:list){
 			for(String str:m.keySet()){
-				 //System.out.println("×Ö¶Î"+str+"\t"+"Öµ"+m.get(str));
+				 //System.out.println("å­—æ®µ"+str+"\t"+"å€¼"+m.get(str));
 			}
 		}
-		//µÚ¶şÖÖÇé¿ö  »ñµÃ ·´ÀàĞÍµÄ list ¼¯ºÏ È»ºóÔÚ class elementType ÖĞÖ¸¶¨ ???????????
+		//ç¬¬äºŒç§æƒ…å†µ  è·å¾— åç±»å‹çš„ list é›†åˆ ç„¶ååœ¨ class elementType ä¸­æŒ‡å®š ???????????
 		//List list2=this.jdbcTemplate.queryForList(sql, Map.class);
-		//µÚÈıÖÖ ÔÚ queryForList ÖĞ ¼ÓµÚÈı¸ö²ÎÊı  Ö¸¶¨ sql ÖĞÕ¼Î»·ûµÄÖµ
+		//ç¬¬ä¸‰ç§ åœ¨ queryForList ä¸­ åŠ ç¬¬ä¸‰ä¸ªå‚æ•°  æŒ‡å®š sql ä¸­å ä½ç¬¦çš„å€¼
 		//this.jdbcTemplate.queryForList(sql,elementType.class,Object...args);
-		//µÚËÄÖÖ   ÔÚµÚÒ»ÖÖµÄ»ù´¡ÉÏ ¼ÓµÚ¶ş¸ö²ÎÊı  Object...args
-		//ÆäÓà²Î¿¼ api ¸Ğ¾õ²»³£ÓÃ
+		//ç¬¬å››ç§   åœ¨ç¬¬ä¸€ç§çš„åŸºç¡€ä¸Š åŠ ç¬¬äºŒä¸ªå‚æ•°  Object...args
+		//å…¶ä½™å‚è€ƒ api æ„Ÿè§‰ä¸å¸¸ç”¨
 		return list;
 	}
 	/**
-	 * @description ²éÑ¯ ·µ»ØmapÀàĞÍ
+	 * @description æŸ¥è¯¢ è¿”å›mapç±»å‹
 	 * @author yuaneg
 	 * @return 
-	 * @time 2015Äê11ÔÂ7ÈÕÉÏÎç12:06:11
+	 * @time 2015å¹´11æœˆ7æ—¥ä¸Šåˆ12:06:11
 	 */
 	public Map<String,Object> queryForMap() {
-		// Õâ¸ö²éÑ¯ Ö»ÊÇÕë¶Ô ²éÑ¯½á¹û 2¸ö ÖµµÄ
-		String sql="select t.real_name,t.id from sys_user t where real_name='Ô¬¶÷¹â'";
+		// è¿™ä¸ªæŸ¥è¯¢ åªæ˜¯é’ˆå¯¹ æŸ¥è¯¢ç»“æœ 2ä¸ª å€¼çš„
+		String sql="select t.real_name,t.id from sys_user t where real_name='è¢æ©å…‰'";
 		Map<String,Object> map=null;
 		try{
 		map=this.jdbcTemplate.queryForMap(sql);
@@ -110,18 +110,18 @@ public class DaoDemo extends BaseDao{
 	/**
 	 * @description 
 	 * @author yuaneg
-	 * @time 2015Äê11ÔÂ7ÈÕÉÏÎç12:26:09
+	 * @time 2015å¹´11æœˆ7æ—¥ä¸Šåˆ12:26:09
 	 */
 	public void update(){
 		//this.jdbcTemplate.update(sql);
 	}
-	//Ö´ĞĞ sal  this.jdbcTemplate.excute  Ò»°ã
-	// call Óï¾ä Ò»°ãÓÃÓÚÖ´ĞĞ ´æ´¢µÄ sql
+	//æ‰§è¡Œ sal  this.jdbcTemplate.excute  ä¸€èˆ¬
+	// call è¯­å¥ ä¸€èˆ¬ç”¨äºæ‰§è¡Œ å­˜å‚¨çš„ sql
 	/**
 	 * @description 
 	 * @author yuaneg
 	 * @return
-	 * @time 2015Äê11ÔÂ7ÈÕÉÏÎç12:55:16
+	 * @time 2015å¹´11æœˆ7æ—¥ä¸Šåˆ12:55:16
 	 */
 	public SqlRowSet queryForSqlRowSet(){
 		String sql="select t.* from sys_user t";
