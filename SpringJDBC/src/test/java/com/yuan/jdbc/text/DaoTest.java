@@ -1,12 +1,12 @@
 package com.yuan.jdbc.text;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
-import static org.hamcrest.core.IsNull.*;
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.yuan.jdbc.dao.DaoDemo;
+import com.yuan.jdbc.dao.IDaoDemo;
 
 
 /**
@@ -29,7 +29,7 @@ import com.yuan.jdbc.dao.DaoDemo;
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class DaoTest extends AbstractJUnit4SpringContextTests {
 	@Resource
-	private DaoDemo daodemol;
+	private IDaoDemo daodemol;
 
 	@Test
 	public void queryIntTest() {

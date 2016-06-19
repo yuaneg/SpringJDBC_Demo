@@ -8,7 +8,6 @@ import java.util.Map;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.yuan.jdbc.common.BaseDao;
 import com.yuan.jdbc.model.Actor;
@@ -17,15 +16,16 @@ import com.yuan.jdbc.model.Actor;
  * @author yuaneg
  * 2015年11月1日下午9:01:32
  */
-@Transactional
+
 @Repository
-public class DaoDemo extends BaseDao{
+public class DaoDemo extends BaseDao implements IDaoDemo{
 	/**
 	 * @description 返回整数类型  spring 3.2.2之后，jdbctemplate中的queryForInt已经被取消了！用 queryForObject 代替
 	 * @author yuaneg
 	 * @return
 	 * 2015年11月1日下午9:40:43
 	 */
+	@Override
 	public int queryForInt(){
 		String sql="select count(*) from sys_user";
 		//第一种方式
@@ -39,6 +39,7 @@ public class DaoDemo extends BaseDao{
 	 * 2015年11月1日下午10:06:13
 	 */
 	@SuppressWarnings("unused")
+	@Override
 	public Object queryForObject(){
 		String sql="select count(*) from sys_user";
 		// 第二个参数 只能用 integer.class 等包装类的.class  用int.class 会出错误   
@@ -78,6 +79,7 @@ public class DaoDemo extends BaseDao{
 	 * @return
 	 * 2015年11月3日下午11:23:07
 	 */
+	@Override
 	public List<?> queryForList(){
 		//第一种 只有sql的情况下 会返回 List<Map<String,Object>> 会返回字段和 值的键值对 的map类型
 		String sql="select t.* from sys_user t";
@@ -101,6 +103,7 @@ public class DaoDemo extends BaseDao{
 	 * @return 
 	 * @time 2015年11月7日上午12:06:11
 	 */
+	@Override
 	public Map<String,Object> queryForMap() {
 		// 这个查询 只是针对 查询结果 2个 值的
 		String sql="select t.real_name,t.id from sys_user t where real_name='袁恩光'";
@@ -117,6 +120,7 @@ public class DaoDemo extends BaseDao{
 	 * @author yuaneg
 	 * @time 2015年11月7日上午12:26:09
 	 */
+	@Override
 	public void update(){
 		//this.jdbcTemplate.update(sql);
 	}
@@ -128,6 +132,7 @@ public class DaoDemo extends BaseDao{
 	 * @return
 	 * @time 2015年11月7日上午12:55:16
 	 */
+	@Override
 	public SqlRowSet queryForSqlRowSet(){
 		String sql="select t.* from sys_user t";
 		SqlRowSet rowset=this.jdbcTemplate.queryForRowSet(sql);
