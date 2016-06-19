@@ -196,12 +196,12 @@
 			<artifactId>spring-js-resources</artifactId>
 			<version>2.3.1.RELEASE</version>
 		</dependency>
-		<!-- ongl 表达式 -->
-		<dependency>
+		<!-- ongl 表达式 struts2 中每个个版本的支持不一样  -->
+	<!-- 	<dependency>
 			<groupId>ognl</groupId>
 			<artifactId>ognl</artifactId>
 			<version>2.6.9</version>
-		</dependency>
+		</dependency> -->
 		<!-- Spring test 的支持 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
