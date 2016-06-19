@@ -1,4 +1,4 @@
-package demo.dao;
+package com.pb.yuan.common;
 
 import javax.sql.DataSource;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 /**
- * @description ³õÊ¼»¯JdbcTemplate ×Ô¶¯×¢Èë dataSource
+ * @description åˆå§‹åŒ–JdbcTemplate è‡ªåŠ¨æ³¨å…¥ dataSource
  * @author yuaneg
- * 2015Äê11ÔÂ1ÈÕÏÂÎç9:31:50
+ * 2015å¹´11æœˆ1æ—¥ä¸‹åˆ9:31:50
  */
 @Repository
 public class BaseDao {

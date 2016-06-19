@@ -1,4 +1,4 @@
-package demo.dao;
+package com.pb.yuan.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,11 +8,16 @@ import java.util.Map;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.pb.yuan.common.BaseDao;
+import com.pb.yuan.model.Actor;
 /**
  * @description 测试用的数据库是  mysql 数据库
  * @author yuaneg
  * 2015年11月1日下午9:01:32
  */
+@Transactional
 @Repository
 public class DaoDemo extends BaseDao{
 	/**
@@ -21,11 +26,10 @@ public class DaoDemo extends BaseDao{
 	 * @return
 	 * 2015年11月1日下午9:40:43
 	 */
-	@Deprecated
 	public int queryForInt(){
 		String sql="select count(*) from sys_user";
 		//第一种方式
-		int t=this.jdbcTemplate.queryForInt(sql);
+		int t=this.jdbcTemplate.queryForObject(sql,Integer.class);
 		return t;
 	}
 	/**
@@ -34,6 +38,7 @@ public class DaoDemo extends BaseDao{
 	 * @return
 	 * 2015年11月1日下午10:06:13
 	 */
+	@SuppressWarnings("unused")
 	public Object queryForObject(){
 		String sql="select count(*) from sys_user";
 		// 第二个参数 只能用 integer.class 等包装类的.class  用int.class 会出错误   
@@ -41,14 +46,14 @@ public class DaoDemo extends BaseDao{
 		//第一个参数 是 sql 第二个参数是要查询 的 返回值的类型  如果写 3 个参数 第三个 参数是 ... (list) 前面 ? 的赋值
 		int t = this.jdbcTemplate.queryForObject(sql, Integer.class);
 		sql="select t.real_name from sys_user t where id=?";
-		String str = this.jdbcTemplate.queryForObject(sql,String.class,190L);
+		String str = this.jdbcTemplate.queryForObject(sql,String.class,1L);
 		
 		//只有以上两种方法    的参数类型是 String sql, Class<T> requiredType, Object... args
 		
 		sql="select t.real_name from sys_user t where id=?";
 		//第三个参数 指定 Object 里面的整数类型 可以不写
-		str=this.jdbcTemplate.queryForObject(sql,new Object[]{190},new int[]{1},String.class);
-		str=this.jdbcTemplate.queryForObject(sql,new Object[]{190},String.class);
+		str=this.jdbcTemplate.queryForObject(sql,new Object[]{1},new int[]{1},String.class);
+		str=this.jdbcTemplate.queryForObject(sql,new Object[]{1},String.class);
 		
 		//采用 RowMapper 接口获得自定义对象
 		sql="select t.real_name,t.id from sys_user t where id=?";
@@ -61,10 +66,10 @@ public class DaoDemo extends BaseDao{
 				actor.setId(rs.getLong(2));
 				return actor;
 			}			
-		}, 190);
+		}, 1);
 		//三种形式 是上面 1-4 的变种 知识把返回值的类型变成了RowMapper
 		
-		//System.out.println(actor.getName()+"\t"+actor.getId());
+		System.out.println(actor.getName()+"\t"+actor.getId());
 		return t;
 	}
 	/**
@@ -73,13 +78,13 @@ public class DaoDemo extends BaseDao{
 	 * @return
 	 * 2015年11月3日下午11:23:07
 	 */
-	public List queryForList(){
+	public List<?> queryForList(){
 		//第一种 只有sql的情况下 会返回 List<Map<String,Object>> 会返回字段和 值的键值对 的map类型
 		String sql="select t.* from sys_user t";
 		List<Map<String,Object>> list=this.jdbcTemplate.queryForList(sql);
 		for(Map<String,Object> m:list){
 			for(String str:m.keySet()){
-				 //System.out.println("字段"+str+"\t"+"值"+m.get(str));
+				 System.out.println("字段"+str+"\t"+"值"+m.get(str));
 			}
 		}
 		//第二种情况  获得 反类型的 list 集合 然后在 class elementType 中指定 ???????????

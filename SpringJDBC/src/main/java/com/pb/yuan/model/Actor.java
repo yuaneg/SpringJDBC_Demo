@@ -1,4 +1,4 @@
-package demo.dao;
+package com.pb.yuan.model;
 
 public class Actor {
 	private String name;
