@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 encoding//log/example.log=UTF-8
 encoding//src/main/java=UTF-8
-encoding//src/main/java/com/pb/yuan/dao/DaoDemo.java=UTF-8
+encoding//src/main/java/com/yuan/jdbc/dao/DaoDemo.java=UTF-8
 encoding//src/main/resource/log4j.properties=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

@@ -1,4 +1,4 @@
-package com.pb.yuan.dao;
+package com.yuan.jdbc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +10,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pb.yuan.common.BaseDao;
-import com.pb.yuan.model.Actor;
+import com.yuan.jdbc.common.BaseDao;
+import com.yuan.jdbc.model.Actor;
 /**
  * @description 测试用的数据库是  mysql 数据库
  * @author yuaneg

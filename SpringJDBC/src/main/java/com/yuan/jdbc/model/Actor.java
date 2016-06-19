@@ -1,4 +1,4 @@
-package com.pb.yuan.model;
+package com.yuan.jdbc.model;
 
 public class Actor {
 	private String name;

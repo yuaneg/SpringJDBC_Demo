@@ -1,4 +1,4 @@
-package com.pb.yuan.common;
+package com.yuan.jdbc.common;
 
 import javax.sql.DataSource;
 
