@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<!-- 两个maven 仓库 -->
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>io.spring.repo.maven.release</id>
 			<url>http://repo.spring.io/release/</url>
@@ -21,7 +21,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	</repositories>
+	</repositories> -->
 	<properties>
 		<org.spring.version>3.2.9.RELEASE</org.spring.version>
 		<!-- 文件拷贝时的编码 -->
