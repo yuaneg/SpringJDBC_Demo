@@ -230,5 +230,15 @@
 			<version>2.2.2</version>
 		</dependency>
 	</dependencies>
-
+	<!-- 构建项目目录 -->
+	<build>
+	<sourceDirectory>src/main/java</sourceDirectory>
+	<resources>
+		<resource>
+			<directory>src/main/resources </directory>
+		</resource>
+	</resources>
+	<testSourceDirectory>src/test/java</testSourceDirectory>
+	<!-- testResources -->
+   </build> 
 </project>
