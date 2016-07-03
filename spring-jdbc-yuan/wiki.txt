@@ -1,0 +1,120 @@
+@Transactional(类型=值)
+
+事物传播行为介绍:
+@Transactional(propagation=Propagation.REQUIRED) 
+如果有事务, 那么加入事务, 没有的话新建一个(默认情况下)
+@Transactional(propagation=Propagation.NOT_SUPPORTED) 
+容器不为这个方法开启事务
+@Transactional(propagation=Propagation.REQUIRES_NEW) 
+不管是否存在事务,都创建一个新的事务,原来的挂起,新的执行完毕,继续执行老的事务
+@Transactional(propagation=Propagation.MANDATORY) 
+必须在一个已有的事务中执行,否则抛出异常
+@Transactional(propagation=Propagation.NEVER) 
+必须在一个没有的事务中执行,否则抛出异常(与Propagation.MANDATORY相反)
+@Transactional(propagation=Propagation.SUPPORTS) 
+如果其他bean调用这个方法,在其他bean中声明事务,那就用事务.如果其他bean没有声明事务,那就不用事务.
+
+NESTED是一个比较特殊的属性，可以理解为事务的嵌套，就如上面的xxx方法是使用了事务的，也就是说一整个方法体属于一个事务，但是因为otherService.update被nested属性修饰了所以当这个方法出现异常而，其他操作没有出现异常的话，整个事务也会提交，除了otherService.update的事务不被提交
+
+
+
+
+
+org.springframework.aop-3.0.6.RELEASE
+
+Spring的面向切面编程,提供AOP(面向切面编程)实现
+
+org.springframework.asm- 3.0.6.RELEASE
+
+Spring独立的asm程序,Spring2.5.6的时候需要asmJar 包3.0.6开始提供他自己独立的asmJar
+
+org.springframework.aspects- 3.0.6.RELEASE
+
+Spring提供对AspectJ框架的整合
+
+org.springframework.beans-3.0.6.RELEASE
+
+SpringIoC(依赖注入)的基础实现
+
+org.springframework.context.support-3.0.6.RELEASE
+
+Spring-context的扩展支持,用于MVC方面
+
+org.springframework.context-3.0.6.RELEASE
+
+Spring提供在基础IoC功能上的扩展服务，此外还提供许多企业级服务的支持，如邮件服务、任务调度、JNDI定位、EJB集成、远程访问、缓存以及各种视图层框架的封装等
+
+org.springframework.core-3.0.6.RELEASE
+
+Spring3.0.6的核心工具包
+
+org.springframework.expression-3.0.6.RELEASE
+
+Spring表达式语言
+
+org.springframework.instrument.tomcat-3.0.6.RELEASE
+
+Spring3.0.6对Tomcat的连接池的集成
+
+org.springframework.instrument-3.0.6.RELEASE
+
+Spring3.0.6对服务器的代理接口
+
+org.springframework.jdbc-3.0.6.RELEASE
+
+对JDBC的简单封装
+
+org.springframework.jms-3.0.6.RELEASE
+
+为简化JMS API的使用而作的简单封装
+
+org.springframework.orm-3.0.6.RELEASE
+
+整合第三方的ORM框架，如hibernate,ibatis,jdo，以及 spring的JPA实现
+
+org.springframework.oxm-3.0.6.RELEASE
+
+Spring 对Object/XMl的映射支持,可以让Java与XML之间来回切换
+
+org.springframework.test-3.0.6.RELEASE
+
+对Junit等测试框架的简单封装
+
+org.springframework.transaction-3.0.6.RELEASE
+
+为JDBC、Hibernate、JDO、JPA等提供的一致的声明式和编程式事务管理
+
+org.springframework.web.portlet-3.0.6.RELEASE
+
+基于protlet的MVC实现
+
+org.springframework.web.servlet-3.0.6.RELEASE
+
+基于servlet的MVC实现
+
+org.springframework.web.struts-3.0.6.RELEASE
+
+整合Struts的时候的支持
+
+org.springframework.web-3.0.6.RELEASE
+
+SpringWeb下的工具包
+
+ 
+
+做Spring还必须依赖第三方包：
+
+① Spring 工程依赖的公共包
+commons-logging-1[1].0.4.jar（只要是做Spring都需要这个包，否则工程起不来）
+
+② 使用SpringAOP功能时依赖的包
+ aspectjweaver-1[1].5.3.jar
+aopalliance-1.0.jar  (下载：http://mirrors.ibiblio.org/maven2/aopalliance/aopalliance/1.0/)
+
+③ 使用SpringJDBC功能时依赖的包
+commons-dbcp.jar (下载：http://commons.apache.org/dbcp/download_dbcp.cgi)
+commons-pool.jar (下载：http://mirrors.ibiblio.org/maven2/commons-pool/commons-pool/)
+commons-collections-2.1.1.jar
+
+
+slf4j是日志的接口（只定义了一些方法而没有去实现），和commons-logging一样。而log4j是具体的实现（即怎么来打印日志等），和logback是一样的。
