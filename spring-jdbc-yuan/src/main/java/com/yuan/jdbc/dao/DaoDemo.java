@@ -19,7 +19,7 @@ import com.yuan.jdbc.model.Actor;
 
 @Repository
 public class DaoDemo extends BaseDao implements IDaoDemo{
-	
+
 	@Override
 	public int queryForInt(){
 		String sql="select count(*) from sys_user";
