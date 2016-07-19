@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace一定要指向dao层所的interface;必须使用全限定名 -->
 <mapper namespace="com.yuan.mybatis.dao.ImybatisUserMapper" >
 <!-- mybatis 二级缓存开启  eviciton回收策略先进先出 flushInterval 自动刷新时间 size最多缓存512个引用对象 readOnly 只读-->
