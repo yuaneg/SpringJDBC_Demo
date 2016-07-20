@@ -1,8 +1,11 @@
 package com.yuan;
 
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -34,6 +37,11 @@ public class BaseTest {
 
 	public MockMvc getMockMvc() {
 		return mockMvc;
+	}
+	
+	@Test
+	public void baseTes(){
+		assertThat(mockMvc, notNullValue());
 	}
 
 }
