@@ -21,4 +21,5 @@ public interface ImybatisUserMapper {
 
     int updateByPrimaryKey(MybatisUser record);
     
+    
 }
