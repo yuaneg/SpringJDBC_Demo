@@ -40,7 +40,7 @@ public class BaseTest {
 	}
 	
 	@Test
-	public void baseTes(){
+	public void baseTest(){
 		assertThat(mockMvc, notNullValue());
 	}
 
