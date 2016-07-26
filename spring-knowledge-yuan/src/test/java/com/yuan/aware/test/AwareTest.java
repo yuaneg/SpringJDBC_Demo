@@ -18,4 +18,5 @@ public class AwareTest {
 		String result = hello.getHelloWord();
 		System.out.println(result);
 	}
+	
 }

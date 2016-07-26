@@ -9,7 +9,7 @@
 
 	<bean id="propertyGetterListener" class="com.yuan.aware.applicationContext.PropertyGettedListener"/>
  
-    <bean id="helloBean" class="com.yuan.aware.applicationContext.HelloBean">
+    <bean id="helloBean" class="com.yuan.aware.applicationContext.HelloBean" destroy-method="shutDown">
         <property name="helloWord"><value>Hello!Justin!</value></property>
     </bean>
 </beans>

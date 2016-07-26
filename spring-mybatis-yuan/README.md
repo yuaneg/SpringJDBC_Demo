@@ -1,4 +1,4 @@
-mybatis + spring mvc 展示
+mybatis + spring mvc + maven练习
 
 mybatis-generator自从生成mybatis的映射 和实体类和部分 sql
 需要mysql 的数据驱动包和 mybatis-generator-core-1.3.2.jar 两个jar
