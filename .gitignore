@@ -1,1 +1,9 @@
 spring-jdbc-yuan/.settings/org.eclipse.wst.common.component
+spring-mvc-yuan/.classpath
+spring-mvc-yuan/.project
+spring-mvc-yuan/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
+spring-mvc-yuan/.springBeans
+spring-mvc-yuan/.settings/org.springframework.ide.eclipse.core.prefs
+*.prefs
+spring-mvc-yuan/.settings/org.eclipse.wst.common.component
+spring-mvc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
