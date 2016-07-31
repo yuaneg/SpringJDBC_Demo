@@ -7,3 +7,6 @@ spring-mvc-yuan/.settings/org.springframework.ide.eclipse.core.prefs
 *.prefs
 spring-mvc-yuan/.settings/org.eclipse.wst.common.component
 spring-mvc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
+*.project
+spring-knowledge-yuan/.classpath
+*.springBeans
