@@ -5,9 +5,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
-	<bean id="propertyGetterListener" class="com.yuan.aware.applicationContext.PropertyGettedListener"/>
+	<bean id="propertyGetterListener" class="com.yuan.applicationcontext.event.PropertyGettedListener"/>
  
-    <bean id="helloBean" class="com.yuan.aware.applicationContext.HelloBean" destroy-method="shutDown">
+    <bean id="helloBean" class="com.yuan.applicationcontext.event.HelloBean" destroy-method="shutDown">
         <property name="helloWord"><value>Hello!Justin!</value></property>
     </bean>
+    <context:component-scan base-package="com.yuan"></context:component-scan>
 </beans>
