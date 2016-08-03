@@ -10,3 +10,11 @@ spring-mvc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
 *.project
 spring-knowledge-yuan/.classpath
 *.springBeans
+*.classpath
+spring-boot-jsp-yuan/.mvn/wrapper/maven-wrapper.jar
+*.jsdtscope
+spring-boot-jsp-yuan/.settings/org.eclipse.wst.common.component
+*.name
+*.container
+spring-boot-jsp-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-boot-jsp-yuan/.mvn/wrapper/maven-wrapper.properties
