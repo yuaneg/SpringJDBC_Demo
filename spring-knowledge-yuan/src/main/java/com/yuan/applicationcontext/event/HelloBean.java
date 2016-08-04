@@ -1,13 +1,16 @@
 package com.yuan.applicationcontext.event;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component()
 public class HelloBean implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
-	private String helloWord = "Hello!World!";
+	
+	@Value("Hello!Justin!")
+	private String helloWord;
 
 	public void setApplicationContext(ApplicationContext context) {
 		this.applicationContext = context;
@@ -28,7 +31,7 @@ public class HelloBean implements ApplicationContextAware {
 	 */
 	public void shutDown() {
 		// 实例法被进行销毁时消息并没有被传播出去
-		// listener没有监听到
+		// listener没有监听到  <bean  destroy-method="shutDown">
 		applicationContext.publishEvent(new PropertyGettedEvent("[" + helloWord + "] is getted"));
 		System.out.println("方法被销毁");
 	}

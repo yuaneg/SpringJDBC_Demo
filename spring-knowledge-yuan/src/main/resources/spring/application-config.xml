@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
     
-	<bean id="propertyGetterListener" class="com.yuan.applicationcontext.event.PropertyGettedListener"/>
+<!-- 	<bean id="propertyGetterListener" class="com.yuan.applicationcontext.event.PropertyGettedListener"/>
  
-    <bean id="helloBean" class="com.yuan.applicationcontext.event.HelloBean" destroy-method="shutDown">
+    <bean id="helloBean" class="com.yuan.applicationcontext.event.HelloBean" >
         <property name="helloWord"><value>Hello!Justin!</value></property>
-    </bean>
+    </bean> -->
     <context:component-scan base-package="com.yuan"></context:component-scan>
+    <!-- 开启aop的支持 -->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    
+    <!-- 通过xml 配置切入点和切入的方法 -->
+    <bean id="aopservice" class="com.yuan.aop.AopMethod"></bean>
+    <aop:config>
+    <aop:pointcut expression="execution(* com.yuan.aop.aopxml..*.*(..))" id="aoppoint"/>
+    <aop:aspect ref="aopservice">
+    <aop:before method="before" pointcut-ref="aoppoint"/>
+    </aop:aspect>
+    </aop:config>
 </beans>
