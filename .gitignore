@@ -18,3 +18,5 @@ spring-boot-jsp-yuan/.settings/org.eclipse.wst.common.component
 *.container
 spring-boot-jsp-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
 spring-boot-jsp-yuan/.mvn/wrapper/maven-wrapper.properties
+
+spring-jdbc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
