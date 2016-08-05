@@ -102,7 +102,8 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 	 */
 	@Override
 	public void update(){
-		//this.jdbcTemplate.update(sql);
+		String sql = "update sys_user set real_name = '侯美娇' where id = ? ";
+		this.jdbcTemplate.update(sql,1);
 	}
 	//执行 sal  this.jdbcTemplate.excute  一般
 	// call 语句 一般用于执行 存储的 sql

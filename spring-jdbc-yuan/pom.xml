@@ -16,7 +16,7 @@
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>2.5</servlet.version>
 		<!-- Spring 版本 -->
-		<spring-framework.version>3.2.9.RELEASE</spring-framework.version>
+		<spring-framework.version>4.3.2.RELEASE</spring-framework.version>
 		<!-- Test -->
 		<junit.version>4.12</junit.version>
 		<!-- 数据库连接池 -->
