@@ -118,7 +118,7 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 	@Override
 	public Actor queryForBean() {
 		String sql="select t.real_name,t.id from sys_user t where id=?";
-		//actor 的属性必须是字段类型的小写形式    比如传入 Actor.class
+		//actor 的属性必须是字段类型的小写形式    必须传入 Actor.class
 		Actor actor = this.jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Actor>(Actor.class),1);
 		return actor;
 	}
