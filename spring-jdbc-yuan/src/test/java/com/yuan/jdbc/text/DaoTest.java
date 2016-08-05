@@ -16,6 +16,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yuan.jdbc.dao.IDaoDemo;
+import com.yuan.jdbc.model.Actor;
 
 
 /**
@@ -61,6 +62,12 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 		daodemol.queryForSqlRowSet();
 		Logger log = Logger.getLogger(DaoTest.class);
 		log.info("信1息");
+	}
+	
+	@Test
+	public void queryForBean(){
+		Actor actor  = daodemol.queryForBean();
+		System.out.println(actor.toString());
 	}
 
 }

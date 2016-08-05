@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
@@ -53,14 +54,13 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 			public Actor mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Actor actor=new Actor();
 				//rs.getString(查询参数名称eg message_name);
-				actor.setName(rs.getString(1));
+				actor.setReal_name(rs.getString(1));
 				actor.setId(rs.getLong(2));
 				return actor;
 			}			
 		}, 1);
 		//三种形式 是上面 1-4 的变种 知识把返回值的类型变成了RowMapper
-		
-		System.out.println(actor.getName()+"\t"+actor.getId());
+		System.out.println(actor.getReal_name()+"\t"+actor.getId());
 		return actor;
 	}
 
@@ -106,17 +106,20 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 	}
 	//执行 sal  this.jdbcTemplate.excute  一般
 	// call 语句 一般用于执行 存储的 sql
-	/**
-	 * @description 
-	 * @author yuaneg
-	 * @return
-	 * @time 2015年11月7日上午12:55:16
-	 */
+
 	@Override
 	public SqlRowSet queryForSqlRowSet(){
 		String sql="select t.* from sys_user t";
 		SqlRowSet rowset=this.jdbcTemplate.queryForRowSet(sql);
 		System.out.println(rowset.getRow());
 		return rowset;
+	}
+
+	@Override
+	public Actor queryForBean() {
+		String sql="select t.real_name,t.id from sys_user t where id=?";
+		//actor 的属性必须是字段类型的小写形式    比如传入 Actor.class
+		Actor actor = this.jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Actor>(Actor.class),1);
+		return actor;
 	}
 }
