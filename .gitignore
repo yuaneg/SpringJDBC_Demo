@@ -23,3 +23,6 @@ spring-jdbc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
 spring-jdbc-yuan/WorkSpace/framework/spring-jdbc-yuan/target/m2e-wtp/web-resources/META-INF/maven/org.jdbc.yuan/spring-jdbc-yuan/pom.xml
 *.MF
 spring-jdbc-yuan/WorkSpace/framework/spring-jdbc-yuan/target/m2e-wtp/web-resources/META-INF/maven/org.jdbc.yuan/spring-jdbc-yuan/pom.properties
+*.component
+spring-knowledge-yuan/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
+spring-knowledge-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml

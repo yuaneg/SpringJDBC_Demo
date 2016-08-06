@@ -26,13 +26,13 @@ public class AspectTest {
 	 * 注解切入
 	 */
 	@Test
-	public void test(){
+	public void testAnnotation1(){
 		demoAnnotationService.add();
 	}
 	
 	
 	@Test
-	public void test2(){
+	public void testAnnotation2(){
 		demoAnnotationService.aopTest2();
 	}
 	
@@ -40,7 +40,7 @@ public class AspectTest {
 	 * execution 方式切入
 	 */
 	@Test
-	public void test3(){
+	public void testExecution(){
 		demoService.add();
 	}
 	
@@ -48,7 +48,7 @@ public class AspectTest {
 	 * 通过xml 配置
 	 */
 	@Test
-	public void test4(){
+	public void testXmlAop(){
 		aopService.add();
 	}
 }

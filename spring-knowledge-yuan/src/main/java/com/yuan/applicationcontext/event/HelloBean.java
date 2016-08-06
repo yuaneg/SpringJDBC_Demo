@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 public class HelloBean implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 	
+	//通过@Value 为hello world 注入属性
 	@Value("Hello!Justin!")
 	private String helloWord;
 

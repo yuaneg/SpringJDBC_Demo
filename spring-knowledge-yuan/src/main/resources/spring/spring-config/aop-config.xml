@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+		
+    <!-- 通过xml 配置切入点和切入的方法 -->
+	<bean id="aopservice" class="com.yuan.aop.AopMethod"></bean>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.yuan.aop.aopxml..*.*(..))"
+			id="aoppoint" />
+		<aop:aspect ref="aopservice">
+			<aop:before method="before" pointcut-ref="aoppoint" />
+			<aop:after method="after" pointcut-ref="aoppoint"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class AopService {
 	
 	/**
-	 * 通过xml配置
+	 * 通过xml配置aop
 	 */
 	public void add(){
 		System.out.println("被切入的方法");

@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AspectTest {
-	
+	/**
+	 * 被注解的方法作为切入
+	 */
 	@Pointcut("@annotation(com.yuan.aop.annotationaop.AnnotationAspect)")
 	public void annotationPointCut() {
 	}

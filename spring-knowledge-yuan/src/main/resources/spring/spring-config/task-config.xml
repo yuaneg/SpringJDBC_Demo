@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- 开启对spring task 注解的支持  asynExecutor 是默认的名字-->
+		
+	<!-- 注解 @Async("这儿的id") -->
+	
+	<!-- 开启扫描任务注解 -->
+	 <task:annotation-driven  />
+	 
+	 <task:executor id="myasync" pool-size="5" />
+	 
+</beans>

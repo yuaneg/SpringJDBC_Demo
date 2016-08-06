@@ -12,7 +12,15 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AspectNormal {
-	
+	/**
+	 * 切入点 execution表达式
+	 * 第一部分第一个 * 表示方法 的修饰和返回值  public void ~~ private String 等等
+	 * 第二部分是方法的全限定名的包
+	 * 第三部分 .. 是指此包和此包下的子包
+	 * 第四部分 * 所有的类名
+	 * 第五部分的 * 表示所有的方法
+	 * 第六部分 (..) 方法的参数
+	 */
 	@Pointcut("execution(* com.yuan.aop.aop..*.*(..))")
 	public void point(){
 	}

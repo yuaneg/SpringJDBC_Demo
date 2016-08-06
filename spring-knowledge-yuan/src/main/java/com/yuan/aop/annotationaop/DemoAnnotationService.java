@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoAnnotationService {
 	
+	/**
+	 * 被注解的方法
+	 */
 	@AnnotationAspect(name="注解式拦截方法1")
 	public void add(){
 		System.out.println("我是方法1");
