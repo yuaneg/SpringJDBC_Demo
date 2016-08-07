@@ -7,5 +7,10 @@
   <modules>
   <module>spring-jdbc-yuan</module>
   <module>spring-knowledge-yuan</module>
+  <module>spring-boot-jsp-yuan</module>
+  <module>spring-mail-yuan</module>
+  <module>spring-mvc-withoutxml-yuan</module>
+  <module>spring-mvc-yuan</module>
+  <module>spring-mybatis-yuan</module>
   </modules>
 </project>

@@ -28,3 +28,6 @@ spring-knowledge-yuan/.settings/org.eclipse.wst.common.project.facet.core.prefs.
 spring-knowledge-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
 spring-mvc-withoutxml-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
 spring-mvc-withoutxml-yuan/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
+*.jar
+spring-boot-thymeleaf-jdbc-yuan/.mvn/wrapper/maven-wrapper.properties
+spring-boot-thymeleaf-jdbc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
