@@ -26,3 +26,5 @@ spring-jdbc-yuan/WorkSpace/framework/spring-jdbc-yuan/target/m2e-wtp/web-resourc
 *.component
 spring-knowledge-yuan/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
 spring-knowledge-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-mvc-withoutxml-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-mvc-withoutxml-yuan/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
