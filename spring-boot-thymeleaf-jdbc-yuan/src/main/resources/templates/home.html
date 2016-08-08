@@ -1,14 +1,27 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <head>
-<meta charset="UTF-8"/>
+	<meta charset="UTF-8"/>
 <title>thymeleaf 模板</title>
 </head>
 <body>
-<p>
+<h1>
 这个html 是通过 thymeleaf 转化的模板 并不是静态的html
 要是使用表达式则要在 html中引用 xmlns:th="http://www.thymeleaf.org"
-</p>
-	hello world  
+</h1>
+	
+	<a th:href="@{/}">返回</a>
+	
 	<span th:text="${name}" ></span>
+	<br></br>
+	
+	<a th:href="@{/queryForInt}">queryForInt</a>
+	
+	<span th:text="${count}"></span>
+	
+	<a th:href="@{/queryForBean}">查询actor</a>
+	
+	<a th:href="@{/queryMap}">查询Map</a>
+	
+		
 </body>
 </html>

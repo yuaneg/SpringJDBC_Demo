@@ -2,12 +2,10 @@ package com.yuan;
 
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
-import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -18,7 +16,7 @@ import com.yuan.jdbc.model.Actor;
 @SpringBootTest
 public class SpringBootThymeleafYuanApplicationTests {
 
-	@Resource
+	@Autowired
 	private IDaoDemo daodemol;
 
 	@Test
@@ -26,12 +24,11 @@ public class SpringBootThymeleafYuanApplicationTests {
 		int t = daodemol.queryForInt();
 		assertThat(t, notNullValue());
 	}
-
+	
 	@Test
-	public void qureyForObject() {
-		Object t = daodemol.queryForObject();
-		assertTrue(t != null);
-
+	public void queryForString() {
+		String t = daodemol.queryForString();
+		assertThat(t, notNullValue());
 	}
 
 	@Test
@@ -40,16 +37,6 @@ public class SpringBootThymeleafYuanApplicationTests {
 
 	}
 
-	@Test
-	public void queryForMap() {
-		daodemol.queryForMap();
-
-	}
-
-	@Test
-	public void queryForSqlRowSet() {
-		daodemol.queryForSqlRowSet();
-	}
 	
 	@Test
 	public void queryForBean(){
@@ -61,5 +48,10 @@ public class SpringBootThymeleafYuanApplicationTests {
 	public void updateSql(){
 		daodemol.update();
 	}
-
+	
+	@Test
+	public void insertBean(){
+		daodemol.insertBean();
+	}
+	
 }
