@@ -48,4 +48,10 @@ public interface IDaoDemo {
 	 * 删除方法
 	 */
 	public void delBean(int id);
+	
+	/**
+	 * queryForList 
+	 * 
+	 */
+	public List<?> queryForList(Actor actor);
 }

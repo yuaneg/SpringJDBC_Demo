@@ -5,10 +5,17 @@
 </head>
 <body>
 	<table border="1" >
+		<tr>
+			<th>序号</th>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>删除</th>
+		</tr>
 		<tr th:each="actor:${list}">
-			<td th:text="${actorStat.count}"></td>
-			<td th:text="${actor.real_name}"></td>
-			<td ><a th:href="@{/delete(id=${actor.id})}">删除</a></td>
+			<td th:text="${actorStat.count}">1</td>
+			<td th:text="${actor.id}">22</td>
+			<td th:text="${actor.real_name}">静态数据</td>
+			<td ><a th:href="@{/delete(id=${actor.id})}" href="#">删除</a></td>
 		</tr>
 	</table>
 	
@@ -19,6 +26,14 @@
 <a th:href="@{/update}">更新</a>
 
 <a th:href="@{/}">返回</a>
+
+<form th:action="@{/query}"  method="post" th:method="post">
+
+    <input type="text" name="real_name"  />
+
+    <input type="submit"/>
+    
+</form>
 
 </div>	
 </body>

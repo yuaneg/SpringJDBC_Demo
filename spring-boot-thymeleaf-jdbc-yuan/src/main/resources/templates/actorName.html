@@ -4,8 +4,10 @@
 <title>thymeleaf 模板</title>
 </head>
 <body>
-
-	<span th:text="${actor.real_name}"></span>
 	
+	ID:<span th:text="${actor.id}"></span>
+	姓名:<span th:text="${actor.real_name}"></span>
+	<br></br>
+	<a th:href="@{/}">返回</a>
 </body>
 </html>

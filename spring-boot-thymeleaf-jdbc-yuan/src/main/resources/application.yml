@@ -1,0 +1,34 @@
+#spring datasouce 和mvc 相关配置
+spring:
+  mvc:
+    favicon:
+      enabled: false
+  #打datasource
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: pxp2p
+
+        
+
+#server 和 server-log配置
+server:
+  port: 8089
+  context-path: /spring-boot/
+  tomcat:
+    accesslog:
+      directory: D:/log/spring-boot/
+      enabled: true
+      prefix: tomcat
+      suffix: .log
+      
+#log的配置  spring-boot 以Logback作为日志框架
+logging:
+  level:
+    root: info
+    org.springframework.web: DEBUG
+  file: D:/log/spring-boot/app.log
+
+  
+    
