@@ -74,5 +74,12 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 		int t=this.jdbcTemplate.queryForObject(sql,Integer.class);
 		return t;
 	}
+
+	@Override
+	public List<?> queryForList(Actor actor) {
+		sql="select t.* from sys_user t where t.real_name = ?";
+		List<Map<String,Object>> list=this.jdbcTemplate.queryForList(sql,actor.getReal_name());
+		return list;
+	}
 	
 }

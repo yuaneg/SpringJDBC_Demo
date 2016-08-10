@@ -2,26 +2,27 @@
 <head>
 	<meta charset="UTF-8"/>
 <title>thymeleaf 模板</title>
+<style>
+.show {padding: 10px;margin: 10px;}
+.show2 {margin-top: 10px;}
+</style>
 </head>
 <body>
-<h1>
-这个html 是通过 thymeleaf 转化的模板 并不是静态的html
-要是使用表达式则要在 html中引用 xmlns:th="http://www.thymeleaf.org"
-</h1>
-	
-	<a th:href="@{/}">返回</a>
-	
-	<span th:text="${name}" ></span>
-	<br></br>
-	
-	<a th:href="@{/queryForInt}">queryForInt</a>
-	
-	<span th:text="${count}"></span>
-	
+<h4>
+这个html 是通过 thymeleaf 转化的模板 并不是静态的html要是使用表达式则要在 html中引用 xmlns:th="http://www.thymeleaf.org"
+</h4>
+<div class="show">
+	<div class="show">
+	<span th:text="${name}" >hello 静态显示</span>
+	<span th:text="${#dates.format(time, 'yyyy-M-d HH:mm:ss')}">2017-1-1</span>
+	</div>
 	<a th:href="@{/queryForBean}">查询actor</a>
 	
-	<a th:href="@{/queryMap}">查询Map</a>
+	<div class="show2">
+	<a th:href="@{/queryMap}">table操作</a>
+	</div>
 	
-		
+	
+</div>		
 </body>
 </html>

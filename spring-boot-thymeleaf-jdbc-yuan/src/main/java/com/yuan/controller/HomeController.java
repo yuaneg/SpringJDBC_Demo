@@ -1,10 +1,13 @@
 package com.yuan.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +23,8 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String home(Model model){
-		model.addAttribute("name", "hello world  袁恩光");
+		model.addAttribute("name", "hello world");
+		model.addAttribute("time", new Date());
 		return "home";
 	}
 	
@@ -64,6 +68,17 @@ public class HomeController {
 	public ModelAndView update(ModelAndView modelAndView) {
 		daoDemo.update();
 		return queryMap(modelAndView);
+	}
+	
+	@RequestMapping("/query")
+	public ModelAndView query(ModelAndView modelAndView,@ModelAttribute Actor actor) {
+		if(StringUtils.isEmpty(actor.getReal_name())) {
+			return queryMap(modelAndView);
+		}
+		List<?> list = daoDemo.queryForList(actor);
+		modelAndView.addObject("list", list);
+		modelAndView.setViewName("foreach");
+		return modelAndView;
 	}
 	
 }
