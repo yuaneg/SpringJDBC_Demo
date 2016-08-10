@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.yuan.jdbc.common.BaseDao;
 import com.yuan.jdbc.model.Actor;
 
@@ -31,7 +32,7 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 	@Override
 	public String queryForString() {
 		sql="select t.real_name from sys_user t where id=?";
-		String str = this.jdbcTemplate.queryForObject(sql,String.class,1L);
+		String str = this.jdbcTemplate.queryForObject(sql,String.class,querMax());
 		return str;
 	}
 	
@@ -56,7 +57,7 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 		Actor actor = this.jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Actor>(Actor.class),querMax());
 		return actor;
 	}
-
+	
 	@Override
 	public void insertBean() {
 		sql = "insert sys_user (real_name) values ('袁恩光')";
@@ -78,7 +79,14 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 	@Override
 	public List<?> queryForList(Actor actor) {
 		sql="select t.* from sys_user t where t.real_name = ?";
-		List<Map<String,Object>> list=this.jdbcTemplate.queryForList(sql,actor.getReal_name());
+		List<Map<String,Object>> list=this.jdbcTemplate.queryForList(sql,actor.getRealName());
+		return list;
+	}
+
+	@Override
+	public List<Actor> query() {
+		sql = "select * from sys_user";
+		List<Actor> list = this.jdbcTemplate.query(sql,  new BeanPropertyRowMapper<Actor>(Actor.class));
 		return list;
 	}
 	

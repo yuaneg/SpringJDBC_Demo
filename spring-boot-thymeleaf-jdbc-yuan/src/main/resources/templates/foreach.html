@@ -14,7 +14,7 @@
 		<tr th:each="actor:${list}">
 			<td th:text="${actorStat.count}">1</td>
 			<td th:text="${actor.id}">22</td>
-			<td th:text="${actor.real_name}">静态数据</td>
+			<td th:text="${actor.realName}">静态数据</td>
 			<td ><a th:href="@{/delete(id=${actor.id})}" href="#">删除</a></td>
 		</tr>
 	</table>
@@ -29,7 +29,7 @@
 
 <form th:action="@{/query}"  method="post" th:method="post">
 
-    <input type="text" name="real_name"  />
+    <input type="text" name="realName"  />
 
     <input type="submit"/>
     

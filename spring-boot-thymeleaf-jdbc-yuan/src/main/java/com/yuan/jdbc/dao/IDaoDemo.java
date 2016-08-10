@@ -54,4 +54,10 @@ public interface IDaoDemo {
 	 * 
 	 */
 	public List<?> queryForList(Actor actor);
+	
+	/**
+	 * 查询list entity
+	 * @return
+	 */
+	public List<Actor> query();
 }

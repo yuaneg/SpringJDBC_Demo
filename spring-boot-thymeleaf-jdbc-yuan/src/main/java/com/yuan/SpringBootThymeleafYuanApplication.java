@@ -22,16 +22,6 @@ public class SpringBootThymeleafYuanApplication {
 		return new DataSourceTransactionManager(dataSource);
 	}
 
-	/**
-	 * 测试事务是否开启成功
-	 * @param platformTransactionManager
-	 * @return
-	 */
-	@Bean
-	public Object testBean(PlatformTransactionManager platformTransactionManager) {
-		System.out.println("事务开启成功" + platformTransactionManager.getClass().getName());
-		return new Object();
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootThymeleafYuanApplication.class, args);

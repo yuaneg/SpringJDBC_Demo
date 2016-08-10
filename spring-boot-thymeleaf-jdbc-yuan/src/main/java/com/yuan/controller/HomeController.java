@@ -72,7 +72,7 @@ public class HomeController {
 	
 	@RequestMapping("/query")
 	public ModelAndView query(ModelAndView modelAndView,@ModelAttribute Actor actor) {
-		if(StringUtils.isEmpty(actor.getReal_name())) {
+		if(StringUtils.isEmpty(actor.getRealName())) {
 			return queryMap(modelAndView);
 		}
 		List<?> list = daoDemo.queryForList(actor);
