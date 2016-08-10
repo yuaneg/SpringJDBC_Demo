@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yuan.jdbc.common.BaseDao;
 import com.yuan.jdbc.model.Actor;
@@ -122,5 +123,19 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 		//actor 的属性必须是字段类型的小写形式    必须传入 Actor.class
 		Actor actor = this.jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Actor>(Actor.class),1);
 		return actor;
+	}
+	
+	@Override
+	public List<Actor> query() {
+		String sql = "select * from sys_user";
+		List<Actor> list = this.jdbcTemplate.query(sql,  new BeanPropertyRowMapper<Actor>(Actor.class));
+		return list;
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public void insertBean() {
+		String sql = "insert sys_user (real_name) values ('袁恩光')";
+		this.jdbcTemplate.execute(sql);
 	}
 }

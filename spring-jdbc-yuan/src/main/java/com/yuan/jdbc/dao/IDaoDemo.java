@@ -45,4 +45,15 @@ public interface IDaoDemo {
 	 * @return
 	 */
 	public Actor queryForBean();
+	
+	/**
+	 * 查询list entity
+	 * @return
+	 */
+	public List<Actor> query();
+	
+	/**
+	 * save 方法
+	 */
+	public void insertBean();
 }

@@ -4,6 +4,8 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -69,5 +71,27 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void updateSql(){
 		daodemol.update();
+	}
+	
+	
+	@Test
+	public void queryListEntity(){
+		List<Actor> actorList = daodemol.query();
+		System.out.println(actorList.size());
+		for(Actor ac : actorList){
+			System.out.println(ac.toString());
+		}
+	}
+	
+	@Test
+	public void insertBean2() throws Exception{
+		try {
+			daodemol.insertBean();
+		} catch (Exception e) {
+			assertThat(e, notNullValue());
+			System.out.println("事务开启成功");
+			return;
+		}
+		throw new Exception();
 	}
 }
