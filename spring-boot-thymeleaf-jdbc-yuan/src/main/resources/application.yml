@@ -9,9 +9,11 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: pxp2p
-
-        
-
+    type: org.apache.commons.dbcp.BasicDataSource
+    dbcp:
+      default-read-only: false
+      
+      
 #server 和 server-log配置
 server:
   port: 8089
