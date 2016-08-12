@@ -1,5 +1,7 @@
 package com.yuan;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,17 @@ public class SpringBootMybaitsStartApplicationTests {
 	@Autowired
 	SysUserMapper sysUser;
 	@Test
-	public void contextLoads() {
+	public void getUserTest() {
 		SysUser s = sysUser.getUser(1L);
 		System.out.println(s.toString());
+	}
+	
+	@Test
+	public void getUserListTest() {
+		List<SysUser> list = sysUser.getUserList();
+		for (SysUser sysUser : list) {
+			System.out.println(sysUser.toString());
+		}
 	}
 
 }
