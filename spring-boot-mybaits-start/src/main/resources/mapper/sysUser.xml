@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一定要指向dao层所的interface;必须使用全限定名 -->
+<mapper namespace="com.yuan.mapper.SysUserMapper" >
+<!-- mybatis 二级缓存开启  eviciton回收策略先进先出 flushInterval 自动刷新时间 size最多缓存512个引用对象 readOnly 只读-->
+<cache 
+	eviction="FIFO"  
+	flushInterval="60000" 
+	size="512" 
+	readOnly="true"/>
+<!-- 对model上的字段进行关系映射  id 标志返回值的类型 resultMap-->
+  <resultMap id="BaseResultMap" type="com.yuan.model.SysUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="getUser" resultMap="BaseResultMap" parameterType="java.lang.Long"  >
+    select * from sys_user where id = #{id}
+  </select>
+  
+</mapper>

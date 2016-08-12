@@ -31,3 +31,5 @@ spring-mvc-withoutxml-yuan/.settings/org.eclipse.wst.common.project.facet.core.p
 *.jar
 spring-boot-thymeleaf-jdbc-yuan/.mvn/wrapper/maven-wrapper.properties
 spring-boot-thymeleaf-jdbc-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-boot-mybaits-start/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-boot-mybaits-start/.mvn/wrapper/maven-wrapper.properties
