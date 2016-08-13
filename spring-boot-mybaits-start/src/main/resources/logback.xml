@@ -40,9 +40,9 @@ debug:
 	</appender>
     <appender name="db" class="ch.qos.logback.classic.db.DBAppender">
     <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
-    	<dataSource class="org.apache.commons.dbcp.BasicDataSource">  
+    	<dataSource class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
             <driverClassName>com.mysql.jdbc.Driver</driverClassName>  
-            <url>jdbc:mysql://localhost:3306/test</url>  
+            <url>jdbc:mysql://localhost:3306/log?useSSL=false</url>  
             <username>root</username>  
             <password>pxp2p</password>  
         </dataSource>  
