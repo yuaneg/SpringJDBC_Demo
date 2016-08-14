@@ -10,32 +10,30 @@
 		</layout>
 	</appender>
 	
+	<!-- jdbc --><!-- param name 的属性时set 时候的变量名称而不是  上面定义的变量名 -->
+    <appender name="db" class="org.apache.log4j.jdbc.JDBCAppender">
+    	<param name="driver" value="com.mysql.jdbc.Driver"/>
+		<param name="URL" value="jdbc:mysql://localhost:3306/log?useSSL=false" />
+		<param name="user" value="root"/>
+		<param name="password" value="pxp2p"/>
+		<param name="sql" value="insert into log4j (date, logger, priority, thread, message) values ('%d', '%c', '%p', '%t', '%m')"/>
+	</appender>
+	
 	<!-- Application Loggers -->
 	<logger name="com.yuan">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
-	<logger name="org.springframework.core">
+	<logger name="org.springframework">
 		<level value="info" />
 	</logger>
 	
-	<logger name="org.springframework.beans">
-		<level value="info" />
-	</logger>
-	
-	<logger name="org.springframework.context">
-		<level value="info" />
-	</logger>
-
-	<logger name="org.springframework.web">
-		<level value="info" />
-	</logger>
-
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<level value="debug"></level>
 		<appender-ref ref="console" />
+		<appender-ref ref="db" />
 	</root>
 	
 </log4j:configuration>

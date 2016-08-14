@@ -13,9 +13,6 @@ debug:
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
         <resetJUL>true</resetJUL>
     </contextListener>
-
-    <!-- To enable JMX Management 通过JMX进行管理 可以省略-->
-    <jmxConfigurator/>
     
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -24,20 +21,20 @@ debug:
     </appender>
 	
 	<!-- 输出日志到当前的文件 -->
-	<appender name="fileAppender"
+<!-- 	<appender name="fileAppender"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>D:/log/spring-mybatis-yuan/granularity.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>D:/log/heuristic-%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
-		<encoder><!-- 必须指定，否则不会往文件输出内容 -->
+		<encoder>必须指定，否则不会往文件输出内容
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
 			</pattern>
 		</encoder>
 		<append>false</append>
 		<prudent>false</prudent>
-	</appender>
+	</appender> -->
     <appender name="db" class="ch.qos.logback.classic.db.DBAppender">
     <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
     	<dataSource class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
@@ -51,10 +48,9 @@ debug:
 	<!-- addtivity:是否向上级loger传递打印信息。默认是true -->
    <logger name="com.yuan" level="debug" addtivity="true">
    </logger>
-   
     <root level="info">
         <appender-ref ref="console"/>
-        <appender-ref ref="fileAppender"/>
+       <!--  <appender-ref ref="fileAppender"/> -->
         <appender-ref ref="db"/>
     </root>
 </configuration>

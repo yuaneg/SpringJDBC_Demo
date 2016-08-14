@@ -19,8 +19,9 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
 	<!--<logger name="org.hibernate" level="debug"/> -->
    <!-- Uncomment and add your logger here:
     <logger name="org.springframework.samples.service.service" level="debug"/> -->
-         
+     <appender name="db" class="com.yuan.log.MongoDBAppender"></appender>    
     <root level="info">
         <appender-ref ref="console"/>
+        <appender-ref ref="db"/>
     </root>
 </configuration>

@@ -8,9 +8,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -27,6 +28,7 @@ import com.yuan.jdbc.model.Actor;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/application-config.xml")
 public class DaoTest extends AbstractJUnit4SpringContextTests {
+	private static final Logger logger = LoggerFactory.getLogger(DaoTest.class);
 	@Resource
 	private IDaoDemo daodemol;
 
@@ -58,14 +60,13 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void queryForSqlRowSet() {
 		daodemol.queryForSqlRowSet();
-		Logger log = Logger.getLogger(DaoTest.class);
-		log.info("信1息");
+		logger.info("信1息");
 	}
 	
 	@Test
 	public void queryForBean(){
 		Actor actor  = daodemol.queryForBean();
-		System.out.println(actor.toString());
+		logger.info(actor.toString());
 	}
 	
 	@Test
@@ -79,7 +80,7 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 		List<Actor> actorList = daodemol.query();
 		System.out.println(actorList.size());
 		for(Actor ac : actorList){
-			System.out.println(ac.toString());
+			logger.info(ac.toString());
 		}
 	}
 	
@@ -89,7 +90,7 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 			daodemol.insertBean();
 		} catch (Exception e) {
 			assertThat(e, notNullValue());
-			System.out.println("事务开启成功");
+			logger.info("事务开启成功");
 			return;
 		}
 		throw new Exception();
