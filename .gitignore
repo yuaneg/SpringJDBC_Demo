@@ -34,3 +34,6 @@ spring-boot-thymeleaf-jdbc-yuan/.settings/org.eclipse.wst.common.project.facet.c
 spring-boot-mybaits-start/.settings/org.eclipse.wst.common.project.facet.core.xml
 spring-boot-mybaits-start/.mvn/wrapper/maven-wrapper.properties
 spring-mybatis-yuan/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-boot-mybatis/.factorypath
+spring-boot-mybatis/.settings/org.eclipse.wst.common.project.facet.core.xml
+spring-boot-mybatis/.mvn/wrapper/maven-wrapper.properties

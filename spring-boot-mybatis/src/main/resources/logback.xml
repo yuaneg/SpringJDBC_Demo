@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="db" class="ch.qos.logback.classic.db.DBAppender">
+		<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+			<dataSource
+				class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+				<driverClassName>com.mysql.jdbc.Driver</driverClassName>
+				<url>jdbc:mysql://localhost:3306/log?useSSL=false</url>
+				<username>root</username>
+				<password>pxp2p</password>
+			</dataSource>
+		</connectionSource>
+	</appender>
+	
+	<logger name="com.yuan" level="debug" addtivity="true">
+	</logger>
+	
+	<root level="info">
+		<appender-ref ref="console" />
+		<appender-ref ref="db" />
+	</root>
+	
+</configuration>
