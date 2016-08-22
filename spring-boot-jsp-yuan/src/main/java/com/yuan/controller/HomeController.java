@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class HomeController {
 	
@@ -16,6 +19,13 @@ public class HomeController {
 	@RequestMapping("/")
 	public String helloWorld(Model model) {
 		return "home";
+	}
+
+	public Map<String,Object> restTest(){
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("name","袁恩光");
+		map.put("age",18);
+		return map;
 	}
 
 }
