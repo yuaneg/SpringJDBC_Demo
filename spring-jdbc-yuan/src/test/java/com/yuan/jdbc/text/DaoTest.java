@@ -30,54 +30,54 @@ import com.yuan.jdbc.model.Actor;
 public class DaoTest extends AbstractJUnit4SpringContextTests {
 	private static final Logger logger = LoggerFactory.getLogger(DaoTest.class);
 	@Resource
-	private IDaoDemo daodemol;
+	private IDaoDemo daoDemo ;
 
 	@Test
 	public void queryIntTest() {
-		int t = daodemol.queryForInt();
+		int t = daoDemo.queryForInt();
 		assertThat(t, notNullValue());
 	}
 
-	@Test
-	public void qureyForObject() {
-		Object t = daodemol.queryForObject();
-		assertTrue(t != null);
-
-	}
+//	@Test
+//	public void qureyForObject() {
+//		Object t = daodemol.queryForObject();
+//		assertTrue(t != null);
+//
+//	}
 
 	@Test
 	public void queryForList() {
-		daodemol.queryForList();
+		daoDemo.queryForList();
 
 	}
 
 	@Test
 	public void queryForMap() {
-		daodemol.queryForMap();
+		daoDemo.queryForMap();
 
 	}
 
 	@Test
 	public void queryForSqlRowSet() {
-		daodemol.queryForSqlRowSet();
+		daoDemo.queryForSqlRowSet();
 		logger.info("信1息");
 	}
 	
-	@Test
-	public void queryForBean(){
-		Actor actor  = daodemol.queryForBean();
-		logger.info(actor.toString());
-	}
-	
+//	@Test
+//	public void queryForBean(){
+//		Actor actor  = daoDemo.queryForBean();
+//		logger.info(actor.toString());
+//	}
+//
 	@Test
 	public void updateSql(){
-		daodemol.update();
+		daoDemo.update();
 	}
 	
 	
 	@Test
 	public void queryListEntity(){
-		List<Actor> actorList = daodemol.query();
+		List<Actor> actorList = daoDemo.query();
 		System.out.println(actorList.size());
 		for(Actor ac : actorList){
 			logger.info(ac.toString());
@@ -87,7 +87,7 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void insertBean2() throws Exception{
 		try {
-			daodemol.insertBean();
+			daoDemo.insertBean();
 		} catch (Exception e) {
 			assertThat(e, notNullValue());
 			logger.info("事务开启成功");

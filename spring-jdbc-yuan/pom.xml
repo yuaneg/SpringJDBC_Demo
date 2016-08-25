@@ -20,7 +20,7 @@
 		<!-- Test -->
 		<junit.version>4.12</junit.version>
 		<!-- 数据库连接池 -->
-		<dbcp.version>1.4</dbcp.version>
+		<dbcp.version>2.1.1</dbcp.version>
 		<!-- log4j -->
 		<log4j.version>1.2.15</log4j.version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
@@ -86,11 +86,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
 			<version>${dbcp.version}</version>
-			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -124,6 +124,11 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 	</dependencies>
 	<build>
