@@ -56,4 +56,16 @@ public interface IDaoDemo {
 	 * save 方法
 	 */
 	public void insertBean();
+
+	/**
+	 * 批量更新
+	 * @return
+	 */
+	int[] batchUpdate();
+
+	/**
+	 * 插入
+	 * @return
+	 */
+	int[] simpleInsert();
 }

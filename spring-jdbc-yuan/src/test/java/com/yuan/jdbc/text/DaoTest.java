@@ -94,4 +94,21 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 		}
 		throw new Exception();
 	}
+
+	@Test
+	public void batchUpdateTest(){
+		int[] count= daoDemo.batchUpdate();
+		System.out.println(count.length);
+		for (int i: count) {
+			System.out.println("更新的ID:"+i+",");
+		}
+	}
+
+	@Test
+	public void simpleInsert(){
+		int[] in = daoDemo.simpleInsert();
+		for(int i:in){
+			System.out.println(i);
+		}
+	}
 }

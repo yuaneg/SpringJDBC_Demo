@@ -2,11 +2,13 @@ package com.yuan.jdbc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -138,4 +140,50 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 		String sql = "insert sys_user (real_name) values ('袁恩光')";
 		this.jdbcTemplate.execute(sql);
 	}
+
+	@Override
+	public int[] batchUpdate() {
+		String sql = "update sys_user set real_name = 'batchUpdate' ";
+		String sql2 = "update sys_user set real_name='袁恩光'";
+		String sql3 = "update sys_user set real_name = ? where id = ?";
+		//批量不同的update
+		List<Object[]> parameters = new ArrayList<Object[]>();
+		for(int i =0;i<12;i++){
+			Object[] obj ;
+			if(i< 6) {
+				 obj = new Object[]{"袁恩光",i};
+			} else {
+				 obj = new Object[]{"batchUpdate",i};
+			}
+			parameters.add(obj);
+		}
+		return this.jdbcTemplate.batchUpdate(sql3,parameters);
+	}
+
+	/**
+	 * 插入
+	 *
+	 * @return 更新的数量
+	 */
+	@Override
+	public int[] simpleInsert() {
+		//第一种方法
+		SimpleJdbcInsert insert = new SimpleJdbcInsert(this.datasource).withTableName("sys_user");
+		Map<String,Object> map = new HashMap<>();
+		//map.put("id",13);
+		map.put("real_name","simpleInsert");
+		insert.executeBatch(map);
+		//第二种方法
+		insert = new SimpleJdbcInsert(this.datasource).withTableName("sys_user").usingGeneratedKeyColumns("id");
+		Actor actor = new Actor();
+		actor.setReal_name("插入对象");
+		//id 的值不起作用依靠数据库的主键自增方式进行
+		actor.setId(1L);
+		//jdbc 对象
+		SqlParameterSource entity = new BeanPropertySqlParameterSource(actor);
+		return insert.executeBatch(entity);
+	}
+	
+
+
 }
