@@ -46,7 +46,7 @@ public class DaoDemo extends BaseDao implements IDaoDemo{
 
 	@Override
 	public void update(){
-		sql = "update sys_user set real_name = '侯美娇' ";
+		sql = "update sys_user set real_name = '已更新' ";
 		this.jdbcTemplate.update(sql);
 	}
 	

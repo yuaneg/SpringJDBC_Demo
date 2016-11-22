@@ -21,8 +21,6 @@
 		<jstl.version>1.2</jstl.version>
 		<!-- 测试类 -->
 		<junit.version>4.7</junit.version>
-		
-
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -57,17 +55,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-test</artifactId>
-		    <version>${org.springframework-version}</version>
-		</dependency>	
+<dependency>
+        <groupId>org.springframework.mobile</groupId>
+        <artifactId>spring-mobile-device</artifactId>
+        <version>1.1.4.RELEASE</version>
+    </dependency>
 	</dependencies>
 
 

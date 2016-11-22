@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>thymeleaf 模板</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+	<table border="1" >
+		<tr>
+			<th>序号</th>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>删除</th>
+		</tr>
+		<tr th:each="actor:${list}">
+			<td th:text="${actorStat.count}">1</td>
+			<td th:text="${actor.id}">22</td>
+			<td th:text="${actor.realName}">静态数据</td>
+			<td ><a th:href="@{/delete(id=${actor.id})}" href="#">删除</a></td>
+		</tr>
+	</table>
+	
+<div style="left:58%;top:20%;position:fixed;">
+
+<a th:href="@{/insert}">插入</a>	<p></p>
+
+<a th:href="@{/update}">更新</a> <p></p>
+
+<a th:href="@{/}">返回</a> <p></p>
+
+<form th:action="@{/query}"  method="post" th:method="post">
+
+    <input type="text" name="realName"  style="width:100px"/>
+
+    <input type="submit"/>
+    
+</form>
+
+</div>	
+</body>
+</html>

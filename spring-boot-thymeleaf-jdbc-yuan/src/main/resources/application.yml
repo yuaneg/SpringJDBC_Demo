@@ -8,16 +8,18 @@ spring:
     url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: pxp2p
+    password: 123456
     type: org.apache.commons.dbcp.BasicDataSource
     dbcp:
       default-read-only: false
-      
-      
+
+  mobile:
+    devicedelegatingviewresolver:
+      enabled: true
 #server 和 server-log配置
 server:
-  port: 8089
-  context-path: /spring-boot/
+  port: 8080
+  #context-path: /spring-boot/
   tomcat:
     accesslog:
       directory: D:/log/spring-boot/

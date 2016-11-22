@@ -6,9 +6,11 @@
 .show {padding: 10px;margin: 10px;}
 .show2 {margin-top: 10px;}
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
-<h1>this is normal</h1>
+<h1>this is mobile</h1>
 <h4>
 这个html 是通过 thymeleaf 转化的模板 并不是静态的html要是使用表达式则要在 html中引用 xmlns:th="http://www.thymeleaf.org"
 </h4>
@@ -20,7 +22,7 @@
 	<a th:href="@{/queryForBean}">查询actor</a>
 	
 	<div class="show2">
-	<a th:href="@{/query}">table操作</a>
+	<a th:href="@{/queryMap}">table操作</a>
 	</div>
 	
 	

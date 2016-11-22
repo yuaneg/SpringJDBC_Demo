@@ -46,7 +46,8 @@ public class HomeController {
 	
 	@RequestMapping("/queryMap")
 	public ModelAndView queryMap(ModelAndView modelAndView){
-		List<?> list = daoDemo.queryForList();
+		//List<?> list = daoDemo.queryForList();
+		List<?> list = daoDemo.query();
 		modelAndView.addObject("list", list);
 		modelAndView.setViewName("foreach");
 		return modelAndView;
